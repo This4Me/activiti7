@@ -60,7 +60,10 @@ public class ProcessController extends BaseController {
 		try {
 			// 创建一个部署对象
 			Deployment deploy = repositoryService.createDeployment().name(name)
-					.addClasspathResource("processes/" + resource).deploy();
+					.addClasspathResource("processes/" + resource).
+					addClasspathResource("processes/leave/leave.png")
+					.key(name)
+					.deploy();
 			System.out.println("部署成功:" + deploy.getId());
 			System.out.println("*****************************************************************************");
 		} catch (Exception e) {
